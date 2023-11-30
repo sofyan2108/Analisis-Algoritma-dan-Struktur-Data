@@ -4,6 +4,12 @@
 
 using namespace std;
 
+void printHeader() {
+    cout << "=============================" << endl;
+    cout << "  Permainan Batu Gunting Kertas" << endl;
+    cout << "=============================" << endl;
+}
+
 int getUserChoice() {
     int choice;
     cout << "Pilih 1 untuk batu, 2 untuk gunting, 3 untuk kertas: ";
@@ -17,6 +23,8 @@ int getComputerChoice() {
 }
 
 void determineWinner(int userChoice, int computerChoice) {
+    cout << "=============================" << endl;
+    cout << "Hasil: ";
     if (userChoice == computerChoice) {
         cout << "Seri!" << endl;
     } else if (
@@ -28,17 +36,32 @@ void determineWinner(int userChoice, int computerChoice) {
     } else {
         cout << "Komputer Menang!" << endl;
     }
+    cout << "=============================" << endl;
 }
 
 int main() {
-    cout << "Selamat datang di permainan batu, gunting, kertas!" << endl;
-
+    printHeader();
+    
     while (true) {
         int userChoice = getUserChoice();
         int computerChoice = getComputerChoice();
 
-        cout << "Anda memilih: " << userChoice << endl;
-        cout << "Komputer memilih: " << computerChoice << endl;
+        cout << "Anda memilih: ";
+        switch(userChoice) {
+            case 1: cout << "Batu"; break;
+            case 2: cout << "Gunting"; break;
+            case 3: cout << "Kertas"; break;
+            default: cout << "Pilihan tidak valid";
+        }
+        cout << endl;
+
+        cout << "Komputer memilih: ";
+        switch(computerChoice) {
+            case 1: cout << "Batu"; break;
+            case 2: cout << "Gunting"; break;
+            case 3: cout << "Kertas"; break;
+        }
+        cout << endl;
 
         determineWinner(userChoice, computerChoice);
 
